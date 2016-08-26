@@ -7,6 +7,7 @@ defmodule Policy.Mixfile do
      elixir: "~> 1.3",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
+     consolidate_protocols: Mix.env != :test,
      deps: deps()]
   end
 
