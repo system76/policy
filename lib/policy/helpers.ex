@@ -28,7 +28,7 @@ defmodule Policy.Helpers do
   end
 
   defp action_for(conn) do
-    case Phoenix.Controller.action_name(conn) do
+    case conn.private.phoenix_action do
       action when action == :new            -> :create
       action when action in [:index, :show] -> :read
       action when action == :edit           -> :update
