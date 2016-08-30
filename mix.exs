@@ -3,11 +3,13 @@ defmodule Policy.Mixfile do
 
   def project do
     [app: :policy,
-     version: "0.1.0",
-     elixir: "~> 1.3",
+     version: "1.0.0",
+     elixir: "~> 1.2",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      consolidate_protocols: Mix.env != :test,
+     description: description(),
+     package: package(),
      deps: deps()]
   end
 
@@ -30,5 +32,19 @@ defmodule Policy.Mixfile do
   defp deps do
     [{:plug, "~> 1.0"},
      {:ecto, "~> 2.0"}]
+  end
+
+  defp description do
+    """
+    Policy is an authorization management framework for Phoenix.  It aims to be
+    minimally invasive and secure by default.
+    """
+  end
+
+  defp package do
+    [name: :policy,
+     maintainers: ["Ben Cates <ben@system76.com>"],
+     licenses: ["MIT"],
+     links: %{"GitHub" => "https://github.com/system76/policy"}]
   end
 end
